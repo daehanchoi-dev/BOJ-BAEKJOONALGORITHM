@@ -1,3 +1,4 @@
+# 덩치 ( Brute Force)
 N = int(input())
 people = []
 
