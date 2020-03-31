@@ -1,3 +1,4 @@
+# 유기농 배추 ( BFS, DFS )
 import sys
 sys.setrecursionlimit(50000)
 
