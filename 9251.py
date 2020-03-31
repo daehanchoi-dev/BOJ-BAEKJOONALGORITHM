@@ -1,4 +1,4 @@
-# 
+# Dynamic Programming (LCS)
 x = list(input())
 y = list(input())
 
