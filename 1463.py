@@ -1,3 +1,4 @@
+# Dynamic Programming
 X = int(input())
 cnt = 0
 minimum = [X]
