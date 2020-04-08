@@ -1,4 +1,4 @@
-# 동전 (그리디알고리즘)
+# 동전 (Greedy Algorithm)
 N, K = map(int, input().split())
 coins = [int(input()) for _ in range(N)]
 
