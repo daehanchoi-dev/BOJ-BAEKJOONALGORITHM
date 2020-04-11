@@ -1,3 +1,4 @@
+#Dynamic Programming
 n = int(input())
 wine_list = [int(input()) for x in range(n)]
 
