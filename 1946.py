@@ -1,3 +1,4 @@
+# Greedy Algorithm
 import sys
 
 def NewMember():
