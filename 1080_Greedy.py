@@ -1,3 +1,4 @@
+# Greedy Algorithm
 N, M = map(int, input().split())
 
 def input_str():
