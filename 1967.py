@@ -6,7 +6,7 @@ for _ in range(node - 1):
     tree_info[parent].append((child, length))
 
 
-# BFS함수로 정렬하기
+
 def bfs(graph_list, start):
     visited = []
     queue = [start]
