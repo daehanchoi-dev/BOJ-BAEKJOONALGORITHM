@@ -1,4 +1,4 @@
-# 
+
 M, N = map(int, input().split())
 
 Chess = [list(input()) for _ in range(M)]
