@@ -1,11 +1,19 @@
 N, C = map(int, input().split())
 M = int(input())
-#Box = [list(input()) for _ in range(M)]
+
+first = 0
+second = 0
+Sum = 0
 
 
 for i in range(M):
-    Box = list(input())
-    if Box[0] == 1:
-        print('hi')
-
-
+    Box = list(map(int, input().split()))
+    print(Box[0])
+    first = Box[0]
+    second = Box[1]
+    if first == 1:
+        Sum += Box[2]
+    if Sum >= C:
+        Sum = C
+    print('Sum= ', Sum)
+    
