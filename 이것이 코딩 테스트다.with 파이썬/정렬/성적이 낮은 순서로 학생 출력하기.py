@@ -21,7 +21,7 @@ for i in range(n):
     array.append((input_data[0], int(input_data[1])))
 
 # 키(key)를 이용하여, 점수를 기준으로 정렬
-array.sort(key=lambda student: student[1])
+array.sort(key=lambda students: students[1])
 
 for student in array:
     print(student[0], end=' ')
