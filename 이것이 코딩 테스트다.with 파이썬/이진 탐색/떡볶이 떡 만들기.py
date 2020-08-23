@@ -1,18 +1,48 @@
-def binary_search(array, target, start, end):
-    while start <= end:
-        mid = (start + end) // 2
-        if array[mid] == target:
-            return mid
-        elif array[mid] > target:
-            end = mid - 1
-        else:
-            start = mid + 1
+"""
+오늘 동빈이는 여행 가신 부모님을 대신해서 떡집 일을 하기로 했다.
+오늘은 떡볶이 떡을 만드는 날이다. 동빈이네 떡볶이 떡은 재밌게도 길이가 일정하지 않다.
+대신에 한 봉지 안에 들어가는 떡의 총 길이는 절단기로 잘라서 맞춰준다.
+절단기에 높이(H)를 지정하면 줄지어진 떡을 한 번에 절단한다.
+높이가 H보다 긴 떡은 H 위의 부분이 잘릴 것이고, 낮은 떡은 잘리지 않는다.
+예를 들어 높이가 19, 14, 10, 17cm인 떡이 나란히 있고 절단기 높이를 15cm로 지정하면 자른 뒤 떡의 높이는 15, 14, 10, 15cm가 될 것이다.
+잘린 떡의 길이는 차례대로 4, 0, 0, 2cm 이다. 손님은 6cm 만큼의 길이를 가져간다.
+손님이 왔을 때 요청한 총 길이가 M일 때 적어도 M 만큼의 떡을 얻기 위해 절단기에 설정할 수 있는 높이의 최댓값을 구하는 프로그램을 작성하시오.
 
-n, target = list(map(int, input().split()))
+입력조건 :
+- 첫째 줄에 떡의 개수 N과 요청한 떡의 길이 M이 주어진다.
+- 둘째 줄에는 떡의 개별 높이가 주어진다. 떡 높이의 총합은 항상 M 이상이므로, 손님은 항상 필요한 양만큼 떡을 사갈 수 있다.
+
+출력조건 :
+- 적어도 M 만큼의 떡을 집에 가져가기 위해 절단기에 설정할 수 있는 높이의 최댓값을 출력한다.
+"""
+# 입력 조건에 따른 떡의 개수와 요청한 떡의 길이 입력 받기
+n, m = list(map(int, input().split()))
 array = list(map(int, input().split()))
+array.sort()
 
-result = binary_search(array, target, 0, n-1)
-if result == None:
-    print("원소가 존재하지 않습니다.")
-else:
-    print(result+1)
+# 이진 탐색을 위해 시작점과 끝점 설정
+start = 0
+end = max(array)
+
+result = 0
+while start <= end:
+    total = 0
+    mid = (start+end) // 2
+    for i in array:
+        # 잘랐을 때의 떡의 양 계산
+        if i > mid:
+            total += (i-mid)
+    # 자른 떡의 양의 부족한 경우 더 많이 자르기 위해 끝점을 한 칸 왼쪽으로
+    if total < m:
+        end = mid - 1
+    # 떡의 양이 충분한 경우 덜 자르기 위해 시작점을 한 칸 오른쪽으로
+    else:
+        # 최대한 덜 잘랐을 때가 정답이므로, 이 부분에서 result 기록
+        result = mid
+        start = mid + 1
+
+print(result)
+
+
+
+
