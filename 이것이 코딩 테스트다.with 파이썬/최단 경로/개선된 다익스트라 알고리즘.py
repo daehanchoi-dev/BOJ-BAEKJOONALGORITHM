@@ -28,18 +28,18 @@ def dijkstra(start):
     # 큐가 비어 있지 않다면
     while q:
         # 큐에서 노드를 하나씩 꺼내 인접한 노드들의 가중치를 모두 확인하고 거리가 가장 짧은 노드에 대한 정보 꺼내기
-        current_distance, current_node = heapq.heaqpop(q)
+        current_distance, current_node = heapq.heappop(q)
         # 더 짧은 경로가 있다면 무시
         if distance[current_node] < current_distance:
             continue
         # 현재 노드와 연결된 다른 인접한 노드들을 확인
-        for adjacent, weight in graph[current_node].items():
-            dist = current_distance + weight
+        for i in graph[current_node]:
+            dist = current_distance + i[1]
             # 시작 노드에서 인접 노드로 바로 가는 것보다 현재 노드를 통해 가는 것이 더 가까울 경우
-            if dist < distance[adjacent]:
+            if dist < distance[i[0]]:
                 # 거리 업데이트
-                distance[adjacent] = dist
-                heapq.heappush(q, (dist, adjacent))
+                distance[i[0]] = dist
+                heapq.heappush(q, (dist, i[0]))
     return distance
 
 
